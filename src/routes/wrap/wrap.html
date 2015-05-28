@@ -1,12 +1,13 @@
 <div layout="row" layout-sm="column" class="modular_content">
-  <md-whiteframe class="md-whiteframe-z1" flex ng-cloak >
+  <md-whiteframe
+    class="md-whiteframe-z1" flex>
     {{ loadingMessage }}
     <div class="container js-masonry" data-masonry-options='{ "itemSelector": ".item", "columnWidth": 2}'>
         <span ng-repeat="card in cards" class="item">
           <ul class="fields">
-            <li> {{ card.name }} </li>
+            <li class="name" > {{ card.name }} </li>
             <li> {{ card.desc }} </li>
-            <li> <a href="{{card.shortUrl}}"></a>Link</li>
+            <li> <a href="{{ card.shortUrl }}">Link</a></li>
           </ul>
         </span>
     </div>

@@ -11,6 +11,11 @@ var browserSync = require('browser-sync');
 var middleware = require('./proxy'); //TODO: residue from huge refactor
 middleware.push(require('connect-history-api-fallback'));
 
+middleware.push(function(req, res, next) {
+  res.setHeader('Access-Control-Allow-Origin', '*');
+  next();
+});
+
 function browserSyncInit(baseDir, files, browser) {
   browser = browser === undefined ? 'default' : browser;
 

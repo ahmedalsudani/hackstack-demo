@@ -1,8 +1,13 @@
- 
-angular.module('hackstack demo app').controller('main', [ 
-function () {
+
+angular.module('hackstack demo app').controller('main',
+function ($scope, hackstack) {
   var self = this;
 
-  console.log('Started controller main'); 
+  $scope.loadingMessage = 'Loading...';
 
-}]);
+  mockAPI.getAll().then(function(result) {
+    $scope.loadingMessage = null;
+    $scope.cards = result.data;
+  });
+
+});

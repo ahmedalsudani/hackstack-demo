@@ -26,10 +26,11 @@
       <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
     <![endif]-->
 
-    <div ng-include="'routes/main/header.html'"></div>
+    <div ng-include="'routes/header.html'"></div>
     <ng-view></ng-view>
-    <div ng-include="'routes/main/footer.html'"></div>
+    <div ng-include="'routes/footer.html'"></div>
 
+    <script type="text/javascript" src="http://masonry.desandro.com/masonry.pkgd.js"></script>
     <!-- build:js(src) scripts/vendor.js -->
     <!-- bower:js -->
     <!-- run `gulp wiredep` to automaticaly populate bower script dependencies -->

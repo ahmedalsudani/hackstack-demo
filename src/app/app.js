@@ -12,7 +12,7 @@
  */
 
 angular.module('hackstack demo app', [ 'ngMaterial',
-'ngRoute',
+  'ngRoute',
   'hackstack'
 ])
 .config([ '$routeProvider', '$locationProvider', function($routeProvider,$locationProvider) {
@@ -36,7 +36,7 @@ angular.module('hackstack demo app', [ 'ngMaterial',
  * @description
  * Global Utility functions attached on the $rootScope of the ngdocs module
  **/
-.run([ '$rootScope', '$location', function($rootScope,$location) {
+.run([ '$rootScope', '$location', 'hackstack', function($rootScope,$location, hackstack) {
   /**
    *
    * @ngdoc function
@@ -56,4 +56,11 @@ angular.module('hackstack demo app', [ 'ngMaterial',
   $rootScope.isActive = function (href) {
     return href === $location.path();
   };
+    var mockData = [{"id": 0, "name": "Josefina"}, {"id": 1, "name": "Tereasa"}, {"id": 2, "name": "Simon"}, {"id": 3, "name": "Harry"}, {"id": 4, "name": "Vi"}, {"id": 5, "name": "Jule"}, {"id": 6, "name": "Brice"}, {"id": 7, "name": "Hiedi"}, {"id": 8, "name": "Val"}, {"id": 9, "name": "Kylee"}];
+
+    window.mockAPI = hackstack.mock(mockData);
+    hackstack.utils.disableRandomErrors(true);
+
+    window.wrappedAPI = hackstack.wrap('//localhost:5000/cards/', {'desc': 'Description'}, {'priorityMock': true})
 }]);
+
