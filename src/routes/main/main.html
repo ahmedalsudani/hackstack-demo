@@ -4,9 +4,9 @@
     <div class="container js-masonry" data-masonry-options='{ "itemSelector": ".item", "columnWidth": 2}'>
         <span ng-repeat="card in cards" class="item">
           <ul class="fields">
-            <li> {{ card.name }} </li>
-            <li> {{ card.desc }} </li>
-            <li> <a href="{{card.shortUrl}}"></a>Link</li>
+            <li class="name"> {{ card.name }} </li>
+            <li>Age: {{card.age}}</li>
+            <li>id: {{ card.id }}</li>
           </ul>
         </span>
     </div>

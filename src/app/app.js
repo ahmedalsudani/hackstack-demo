@@ -56,11 +56,19 @@ angular.module('hackstack demo app', [ 'ngMaterial',
   $rootScope.isActive = function (href) {
     return href === $location.path();
   };
-    var mockData = [{"id": 0, "name": "Josefina"}, {"id": 1, "name": "Tereasa"}, {"id": 2, "name": "Simon"}, {"id": 3, "name": "Harry"}, {"id": 4, "name": "Vi"}, {"id": 5, "name": "Jule"}, {"id": 6, "name": "Brice"}, {"id": 7, "name": "Hiedi"}, {"id": 8, "name": "Val"}, {"id": 9, "name": "Kylee"}];
+    var mockData = [{'age': 24, 'id': 0, 'name': 'Josefina'}, {'age': 42, 'id': 1, 'name': 'Tereasa'}, {'age': 19, 'id': 2, 'name': 'Simon'}, {'age': 32, 'id': 3, 'name': 'Harry'}, {'age': 30, 'id': 4, 'name': 'Vi'}, {'age': 27, 'id': 5, 'name': 'Jule'}, {'age': 42, 'id': 6, 'name': 'Brice'}, {'age': 21, 'id': 7, 'name': 'Hiedi'}, {'age': 38, 'id': 8, 'name': 'Val'}, {'age': 29, 'id': 9, 'name': 'Kylee'}];
 
     window.mockAPI = hackstack.mock(mockData);
     hackstack.utils.disableRandomErrors(true);
 
     window.wrappedAPI = hackstack.wrap('//localhost:5000/cards/', {'desc': 'Description'}, {'priorityMock': true})
+
+    window.logger = function(x) {console.log(x)};
+
+    window.makeLogger = function(prop) {
+      return function(x) {
+        logger(x[prop]);
+      }
+    };
 }]);
 
