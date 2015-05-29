@@ -2,11 +2,19 @@
 angular.module('hackstack demo app').controller('wrap',
 function ($scope, $http) {
   var self = this;
-  $scope.loadingMessage = 'Loading...';
-  wrappedAPI.getAll().then(function(result) {
-    $scope.cards = result.data;
+
+  function success(result) {
     $scope.loadingMessage = null;
-  }, function(err) {
-    console.log(err);
-  });
+    $scope.cards = result.data;
+  }
+
+  function error (err) {
+    console.info(err);
+    $scope.errorMessage = err.data;
+    $scope.loadingMessage = null;
+  }
+
+  $scope.loadingMessage = 'Loading...';
+
+  wrappedAPI.getAll().then(success, error);
 });

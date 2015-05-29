@@ -1,6 +1,7 @@
 <div layout="row" layout-sm="column" class="modular_content">
   <md-whiteframe class="md-whiteframe-z1" flex ng-cloak >
     {{ loadingMessage }}
+    <div class="error"> {{ errorMessage }} </div>
     <div class="card-container">
         <span ng-repeat="card in cards" class="item">
           <ul class="fields">
