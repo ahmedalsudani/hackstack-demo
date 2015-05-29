@@ -8,7 +8,7 @@
           <ul class="fields">
             <li class="name" > {{ card.name }} </li>
             <li> {{ card.desc }} </li>
-            <li> Members: {{ card.members }}</li>
+            <li> Members: <span ng-repeat="member in card.members">{{ member }}{{$last ? '' : ', '}}</span></li>
             <li> <a href="{{ card.shortUrl }}">Link</a></li>
           </ul>
         </span>

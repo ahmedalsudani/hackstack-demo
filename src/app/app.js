@@ -58,7 +58,7 @@ angular.module('hackstack demo app', [ 'ngMaterial',
   };
     var mockData = [
       {'age': 24, 'id': 0, 'name': 'Josefina'},
-      {'age': 42, 'id': 1, 'name': 'Tereasa'},
+      {'age': 42, 'id': 1, 'name': 'Josep'},
       {'age': 19, 'id': 2, 'name': 'Simon'},
       {'age': 32, 'id': 3, 'name': 'Harry'},
       {'age': 30, 'id': 4, 'name': 'Vi'},
@@ -71,10 +71,15 @@ angular.module('hackstack demo app', [ 'ngMaterial',
     window.mockAPI = hackstack.mock(mockData);
     hackstack.utils.disableRandomErrors(true);
 
-    window.wrappedAPI = hackstack.wrap('//localhost:5000/cards/', {
+    var wrappedApiData= {
       'desc': 'Description',
-      //'members': ['Vi']
-    }, {'priorityMock': true});
+      // 'members': ['Vi', 'Val']
+    };
+
+    window.wrappedAPI = hackstack.wrap(
+      '//localhost:5000/cards/', // endpoint
+      wrappedApiData,            // data object
+      {'priorityMock': true});   // options
 
     window.logger = function(x) {console.log(x)};
 
