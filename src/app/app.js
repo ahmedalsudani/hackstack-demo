@@ -65,10 +65,6 @@ angular.module('hackstack demo app', [ 'ngMaterial',
 
     window.logger = function(x) {console.log(x)};
 
-    window.makeLogger = function(prop) {
-      return function(x) {
-        logger(x[prop]);
-      }
-    };
+    window.logData = R.compose(logger, R.prop('data'));
 }]);
 

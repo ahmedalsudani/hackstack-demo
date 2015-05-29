@@ -15,8 +15,6 @@
     "angular": "~1.3",
     "angular-material": "latest",
     "angular-route": "~1.3",
-    "hack-stack": "git@github.com:rangle/hack-stack.git",
-    "masonry": "~3.3.0",
-    "outlayer": "~1.4.0"
+    "hack-stack": "git@github.com:rangle/hack-stack.git"
   }
 }
