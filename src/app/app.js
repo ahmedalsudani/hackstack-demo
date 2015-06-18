@@ -73,16 +73,15 @@ angular.module('hackstack demo app', [ 'ngMaterial',
 
     var wrappedApiData= {
       'desc': 'Description',
-      // 'members': ['Vi', 'Val']
+      'members': ['Vi', 'Val']
     };
 
     window.wrappedAPI = hackstack.wrap(
-      '//localhost:5000/cards/', // endpoint
+      '//hackstack-demo-server.herokuapp.com/cards/', // endpoint
       wrappedApiData,            // data object
-      {'priorityMock': true});   // options
+      {'priorityMock': false});   // options
 
     window.logger = function(x) {console.log(x)};
 
     window.logData = R.compose(logger, R.prop('data'));
 }]);
-
