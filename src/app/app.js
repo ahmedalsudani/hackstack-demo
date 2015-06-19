@@ -11,77 +11,31 @@
   http://localhost:8000
  */
 
-angular.module('hackstack demo app', [ 'ngMaterial',
+angular.module('hackstack demo app', [
+  'ngMaterial',
   'ngRoute',
-  'hackstack'
+  'hackstack',
+  'demo.config'
 ])
-.config([ '$routeProvider', '$locationProvider', function($routeProvider,$locationProvider) {
-
+.config([ '$routeProvider', '$locationProvider',
+function($routeProvider,$locationProvider) {
+    var main = {
+      templateUrl: 'routes/main/main.html',
+      controller: 'main',
+      controllerAs: 'vm'
+    };
     $routeProvider
-      .when('/', {
-        templateUrl: 'routes/main/main.html',
-        controller: 'main'
-      })
+      .when('/mock', main)
+      .when('/wrap', main)
+      .when('/live', main)
       .otherwise({
-        redirectTo: '/'
+        redirectTo: '/live'
       });
 
     $locationProvider.html5Mode(true);
 
 }])
-/**
- * @ngdoc overview
- * @name $rootScope
- *
- * @description
- * Global Utility functions attached on the $rootScope of the ngdocs module
- **/
-.run([ '$rootScope', '$location', 'hackstack', function($rootScope,$location, hackstack) {
-  /**
-   *
-   * @ngdoc function
-   * @name $rootScope.isActive
-   *
-   * @description
-   * Global utility function,
-   * used to apply active classes to link buttons
-   *
-   * @example
-   <pre>
-     <a href="/example" ng-class="{ 'active': isActive('/example') }">
-       Example
-     </a>
-   </pre>
-   */
-  $rootScope.isActive = function (href) {
-    return href === $location.path();
-  };
-    var mockData = [
-      {'age': 24, 'id': 0, 'name': 'Josefina'},
-      {'age': 42, 'id': 1, 'name': 'Josep'},
-      {'age': 19, 'id': 2, 'name': 'Simon'},
-      {'age': 32, 'id': 3, 'name': 'Harry'},
-      {'age': 30, 'id': 4, 'name': 'Vi'},
-      {'age': 27, 'id': 5, 'name': 'Jule'},
-      {'age': 42, 'id': 6, 'name': 'Brice'},
-      {'age': 21, 'id': 7, 'name': 'Hiedi'},
-      {'age': 38, 'id': 8, 'name': 'Val'},
-      {'age': 29, 'id': 9, 'name': 'Kylee'}];
-
-    window.mockAPI = hackstack.mock(mockData);
-    hackstack.utils.disableRandomErrors(true);
-
-    var wrappedApiData= {
-      'desc': 'Description',
-      'members': ['Vi', 'Val']
-    };
-
-    window.wrappedAPI = hackstack.wrap(
-      '//hackstack-demo-server.herokuapp.com/cards/', // endpoint
-      wrappedApiData,            // data object
-      {'priorityMock': false});   // options
-
-    window.logger = function(x) {console.log(x)};
-
-    window.logData = R.compose(logger, R.prop('data'));
-}]);
+.run(function(config, hackstack, $location, $log, $window) {
+  $window.hsUtils.disableRandomErrors(true);
+  config.backendType = $location.path().slice(1) || 'live';
+})
