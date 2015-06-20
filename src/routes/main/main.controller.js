@@ -5,7 +5,7 @@ function (hackstack, birds, $log) {
 
   function success(result) {
     vm.loadingMessage = null;
-    vm.cards = result.data;
+    vm.birds = result.data;
   }
 
   console.log('main running');
@@ -13,7 +13,7 @@ function (hackstack, birds, $log) {
   function error(err) {
     $log.info(err);
     vm.loadingMessage = null;
-    vm.errorMessage = err.data;
+    vm.errorMessage = err.data || 'Couldn\'t contact server';
   }
 
   vm.loadingMessage = 'Loading...';

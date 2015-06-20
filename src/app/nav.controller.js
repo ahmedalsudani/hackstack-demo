@@ -6,12 +6,17 @@ function (config, $location, $route) {
     {name: 'live', href: 'live'},
     {name: 'hackstack.mock', href: 'mock'},
     {name: 'hackstack.wrap', href: 'wrap'}
-    ];
+  ];
   vm.isActive = function isActive(href) {
-    return href === $location.path();
+    return href === $location.path() ||
+      href === $location.absUrl();
   }
   vm.click = function click(event) {
-    $route.reload();
+    if(vm.isActive(event.currentTarget.href)){
+      $route.reload();
+    }
+    window.fn = vm.isActive;
+    window.$loc = $location;
     config.backendType = event.currentTarget.type.slice();
   }
   vm.setBackend = function setBackend(backendType) {

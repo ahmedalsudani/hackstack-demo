@@ -3,59 +3,71 @@
     "BASE_URL": "http://hackstack-demo-server.herokuapp.com/cards",
     "mockObject": {
       "age": 20,
-      "name": "Chuck"
+      "name": "Chuck",
+      "img": "https://placekitten.com/g/200/300"
     },
     "mockData": [
       {
         "age": 24,
         "id": 0,
         "name": "Josefina",
-        "img": "http://i.imgur.com/yQFqnK0.png"
+        "scientificName": "placekitten",
+        "img": "https://placekitten.com/g/200/300"
       },
       {
         "age": 42,
         "id": 1,
-        "name": "Josep"
+        "name": "Josep",
+        "scientificName": "placekitten",
+        "img": "https://placekitten.com/g/200/300"
       },
       {
         "age": 19,
         "id": 2,
-        "name": "Simon"
+        "name": "Simon",
+        "scientificName": "placekitten",
+        "img": "https://placekitten.com/g/200/300"
       },
       {
         "age": 32,
         "id": 3,
-        "name": "Harry"
+        "name": "Harry",
+        "scientificName": "placekitten",
+        "img": "https://placekitten.com/g/200/300"
       },
       {
         "age": 30,
         "id": 4,
-        "name": "Vi"
+        "name": "Vi",
+        "scientificName": "placekitten",
+        "img": "https://placekitten.com/g/200/300"
       },
       {
         "age": 27,
         "id": 5,
-        "name": "Jule"
+        "name": "Jule",
+        "scientificName": "placekitten",
+        "img": "https://placekitten.com/g/200/300"
       },
       {
         "age": 42,
         "id": 6,
-        "name": "Brice"
+        "name": "Brice",
+        "scientificName": "placekitten",
+        "img": "https://placekitten.com/g/200/300"
       },
       {
         "age": 21,
         "id": 7,
-        "name": "Hiedi"
-      },
-      {
-        "age": 38,
-        "id": 8,
-        "name": "Val"
+        "name": "Hiedi",
+        "scientificName": "placekitten",
+        "img": "https://placekitten.com/g/200/300"
       },
       {
         "age": 29,
-        "id": 9,
-        "name": "Kylee"
+        "id": 8,
+        "scientificName": "Pityriasis gymnocephala",
+        "name": "Bornean bristlehead"
       }
     ]
   }
